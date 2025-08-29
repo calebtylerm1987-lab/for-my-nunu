@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To my pretty girl</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #0a1929, #0d1b2a);
+            color: #e0e1dd;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, #1b263b, #415a77);
+            color: #e0e1dd;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(13, 27, 42, 0.6);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #e0e1dd, #778da9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            color: #c5d0e6;
+        }
+        
+        /* Navigation */
+        nav {
+            background: linear-gradient(to right, #1b263b, #415a77);
+            padding: 18px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 15px rgba(13, 27, 42, 0.6);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 25px;
+        }
+        
+        nav a {
+            color: #e0e1dd;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            padding: 8px 18px;
+            border-radius: 30px;
+        }
+        
+        nav a:hover {
+            background: rgba(123, 142, 173, 0.3);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 90px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #778da9;
+            display: inline-block;
+            padding: 0 20px;
+            background: linear-gradient(to bottom, #0a1929, #0d1b2a);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #415a77, transparent);
+            z-index: 1;
+        }
+        
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(45deg, #0d1b2a, #1b263b, #415a77);
+            text-align: center;
+            padding: 110px 0;
+            border-radius: 0 0 50% 50% / 0 0 30px 30px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-text {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            line-height: 1.9;
+            background: rgba(27, 38, 59, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(13, 27, 42, 0.4);
+        }
+        
+        /* Gallery Section */
+        #gallery {
+            background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .gallery-item {
+            height: 280px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(13, 27, 42, 0.5);
+            transition: all 0.4s;
+            border: 5px solid #1b263b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1b263b;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(65, 90, 119, 0.4);
+            border-color: #415a77;
+        }
+        
+        .gallery-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        /* Love Letter Section */
+        #love-letter {
+            background: linear-gradient(to bottom, #1b263b, #415a77);
+            border-radius: 50% 50% 0 0 / 30px 30px 0 0;
+        }
+        
+        .letter-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(27, 38, 59, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(13, 27, 42, 0.5);
+            position: relative;
+            border: 2px dashed #778da9;
+        }
+        
+        .letter-container::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid #778da9;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+        
+        .letter-content {
+            font-size: 1.2rem;
+            line-height: 1.9;
+        }
+        
+        .letter-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #1b263b, #415a77);
+            color: #e0e1dd;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .heart {
+            color: #778da9;
+            text-shadow: 0 0 10px #415a77;
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.5;
+            color: #778da9;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-20px) rotate(20deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.5;
+            }
+        }
+        
+        /* Simple Music Controls */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1b263b;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 2px solid #778da9;
+        }
+        
+        .music-control i {
+            color: #e0e1dd;
+            font-size: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 10px 0;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .letter-container {
+                padding: 30px 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements Background -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <h1>Appreciating my lady</h1>
+            <p class="subtitle">The best lady I could ever ask for</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Cause I luv ya</a></li>
+            <li><a href="#gallery">Fun Times with Pookie</a></li>
+            <li><a href="#love-letter">Some Thoughts</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <div class="section-title">
+                <h2>I'm blessed.</h2>
+            </div>
+            <p class="hero-text">
+                Blessed that someone so amazing chose me. Blessed to be with a woman who feels like sunshine on a cloudy day. Blessed to be with someone so perfect.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fun times with the baby</h2>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/ccsBzCV0/first-picture.jpg" alt="First ever selfie with the baby" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/4ZSPyC2z/first-movie.jpg" alt="Spooderman with the baby" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/rfN5Nfzt/first-public-outing.jpg" alt="Out in the town with bae" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/rRw6dMw6/very-emotional.jpg" alt="My baby started the great trek" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/1GBq0yKL/fun-time-with-the-baby.jpg" alt="Fun time with the baby" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/4w6B5nWh/us-being-us.jpg" alt="Us being us" class="gallery-img"> 
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Love Letter Section -->
+    <section id="love-letter">
+        <div class="container">
+            <div class="section-title">
+                <h2>A lil bit of my love for you in words</h2>
+            </div>
+            <div class="letter-container">
+                <div class="letter-content">
+                    <p>My Sweetheart,</p>
+                    
+                    <p>I just want to say that I love you. I appreciate you beyond all measures. There isn't a day that goes by where I don't thank God for bringing such an amazing, vibrant and loving woman into my life. You're truly the best</p>
+                    
+                    <p>You're this strong and brave woman who inspires me to want to be better with every passing day. Your commitment and your work ethic are some of the most admirable qualities about you baby, especially getting done in 0.5 seconds. Very coolio.</p>
+                    
+                    <p>Though things seem uncertain and our future looks scary, one thing I want you to know is that I'll be there for you through it all. Whether it be your degree, things with my family and things with us, I want you to know that I'm choosing you and I'm choosing us 100% of the time.</p>
+                    
+                    <p>This was just meant to let you know that I see you and I support you in every single thing you do. Regardless of what the outcome is, no matter how scary. You can count on it. </p>
+                    
+                    <p>I love you eternally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>From your sweet boy</p>
+        </div>
+    </footer>
+
+    <!-- Simple Music Control -->
+    <div class="music-control" onclick="toggleMusic()">
+        <i class="fas fa-music"></i>
+    </div>
+
+    <!-- Audio Element - Add your music file here -->
+    <audio id="backgroundMusic" loop>
+        <source src=superpowers-daniel-caesar.mp3.mp3 type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Create floating elements
+        const floatingElementsContainer = document.getElementById('floatingElements');
+        const symbols = ['●', '◆', '■', '▲', '♪', '❉'];
+        
+        for (let i = 0; i < 25; i++) {
+            const element = document.createElement('div');
+            element.classList.add('floating-element');
+            element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            element.style.left = `${Math.random() * 100}%`;
+            element.style.top = `${Math.random() * 100}%`;
+            element.style.fontSize = `${Math.random() * 15 + 15}px`;
+            element.style.animationDelay = `${Math.random() * 5}s`;
+            element.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            floatingElementsContainer.appendChild(element);
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 60,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Music control functionality
+        const music = document.getElementById('backgroundMusic');
+        let musicPlaying = false;
+        const musicControl = document.querySelector('.music-control');
+        const musicIcon = document.querySelector('.music-control i');
+        
+        // Function to toggle music play/pause
+        function toggleMusic() {
+            if (musicPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        }
+        
+        // Function to play music
+        function playMusic() {
+            music.play().then(() => {
+                musicPlaying = true;
+                musicIcon.className = 'fas fa-pause';
+                musicControl.title = "Pause music";
+            }).catch(error => {
+                console.error('Error playing music:', error);
+                alert('Please click the music button again to start playback.');
+            });
+        }
+        
+        // Function to pause music
+        function pauseMusic() {
+            music.pause();
+            musicPlaying = false;
+            musicIcon.className = 'fas fa-music';
+            musicControl.title = "Play music";
+        }
+        
+        // Try to play music automatically when page loads
+        window.addEventListener('load', function() {
+            // Modern browsers require user interaction before playing audio
+            // We'll just set up the button but not autoplay
+            musicIcon.className = 'fas fa-music';
+            musicControl.title = "Play music";
+        });
+        
+        // Allow music to play after any user interaction
+        document.addEventListener('click', function() {
+            // This ensures the music can be played after user interaction
+            // We don't automatically play, but we enable the button to work
+        });
+    </script>
+</body>
+</html>
